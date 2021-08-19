@@ -1,0 +1,12 @@
+Create table `contactura`.`user` (
+`id` int not null,
+`username` varchar(255) null,
+`password` varchar(255) null,
+`name` varchar(45) null,
+`admin` boolean null,
+primary key(`id`)
+);
+
+alter table `contactura`.`user`
+change column `id` `id` int (11) not null auto_increment,
+add unique index `id_unique` (`id` asc);
