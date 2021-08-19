@@ -20,7 +20,7 @@ public class ContacturaUser {
 	private Long id;
 	
 	private String username;
-	private String passoword;
+	private String password;
 	private String name;
 	private Boolean admin;
 	

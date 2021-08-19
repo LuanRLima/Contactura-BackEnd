@@ -48,7 +48,7 @@ public class ContacturaUserController {
 	public ResponseEntity upadte(@PathVariable long id, @RequestBody ContacturaUser contacturaUser) {
 		return userRepository.findById(id).map(record -> {
 			record.setName(contacturaUser.getName());
-			record.setPassoword(contacturaUser.getPassoword());
+			record.setPassword(contacturaUser.getPassword());
 			record.setUsername(contacturaUser.getUsername());
 			record.setAdmin(contacturaUser.getAdmin());
 			ContacturaUser update = userRepository.save(record);
