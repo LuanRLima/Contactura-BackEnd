@@ -1,4 +1,4 @@
-package com.contactura.contactura.controller;
+/*package com.contactura.contactura.controller;
 
 import java.util.List;
 
@@ -17,7 +17,7 @@ import com.contactura.contactura.model.ContacturaUser;
 import com.contactura.contactura.repository.ContacturaUserRepository;
 
 @RestController
-@RequestMapping({ "/contactura" }) // http:localhost:8090/contacturaUser
+@RequestMapping({ "/user" }) // http:localhost:8090/user
 public class ContacturaUserController {
 
 	@Autowired
@@ -50,7 +50,7 @@ public class ContacturaUserController {
 			record.setName(contacturaUser.getName());
 			record.setPassword(contacturaUser.getPassword());
 			record.setUsername(contacturaUser.getUsername());
-			record.setAdmin(contacturaUser.getAdmin());
+			record.setAdmin(contacturaUser.isAdmin());
 			ContacturaUser update = userRepository.save(record);
 			return ResponseEntity.ok().body(update);
 		}).orElse(ResponseEntity.notFound().build());
@@ -68,3 +68,4 @@ public class ContacturaUserController {
 	}
 
 }
+*/

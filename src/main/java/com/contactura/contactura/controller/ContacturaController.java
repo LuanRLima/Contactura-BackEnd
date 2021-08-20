@@ -45,7 +45,7 @@ public class ContacturaController {
 	
 	//Update - http://localhost/contactura/{id}
 	@PutMapping(value = "{id}")
-	public ResponseEntity update(@PathVariable long id,
+	public ResponseEntity<?> update(@PathVariable long id,
 			@RequestBody Contactura contactura){
 		return repository.findById(id)
 				.map(record -> {

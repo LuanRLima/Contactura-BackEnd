@@ -22,7 +22,7 @@ public class ContacturaUser {
 	private String username;
 	private String password;
 	private String name;
-	private Boolean admin;
+	private boolean admin;
 	
 
 }
