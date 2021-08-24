@@ -17,7 +17,7 @@ public class ContacturaApplication {
 		SpringApplication.run(ContacturaApplication.class, args);
 	}
 	
-	@Bean
+	/*@Bean
 	CommandLineRunner init(ContacturaRepository repository){
 		return args -> {
 //			para o caso de ser necessario limpar o banco
@@ -33,4 +33,4 @@ public class ContacturaApplication {
 				.forEach(System.out::println);
 		};
 	}
-}
+*/}
