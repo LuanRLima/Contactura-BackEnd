@@ -1,5 +1,6 @@
 package com.contactura.contactura.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,11 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.contactura.contactura.dom.TwoTables;
 import com.contactura.contactura.model.Contactura;
+import com.contactura.contactura.model.ContacturaUser;
 import com.contactura.contactura.repository.ContacturaRepository;
+import com.contactura.contactura.repository.ContacturaUserRepository;
 import com.contactura.contactura.service.ContacturaService;
-import com.contactura.contactura.service.QueryService;
+
 
 @RestController
 @RequestMapping({ "/contactura" }) // http://localhost:8090/contactura
@@ -30,7 +32,7 @@ public class ContacturaController {
 	@Autowired
 	private ContacturaService service;
 	@Autowired
-    QueryService queryservice;
+	private ContacturaUserRepository userRepository;
 
 	// List ALL - //http://localhost:8090/contactura
 	@GetMapping
@@ -77,8 +79,11 @@ public class ContacturaController {
 	}
 	
 	@GetMapping("/joinQuery")
-    public List<TwoTables> getQuery()
+    public List<?> getQuery()
     {
-        return queryservice.JPQLQuery();
+		List  list = userRepository.findAllQuery();
+		list.addAll(repository.findAllQuery());
+        return list;
     }
+
 }

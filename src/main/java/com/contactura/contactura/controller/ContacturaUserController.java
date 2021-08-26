@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.contactura.contactura.model.Contactura;
 import com.contactura.contactura.model.ContacturaUser;
 import com.contactura.contactura.repository.ContacturaUserRepository;
 import com.contactura.contactura.service.ContacturaUserService;
@@ -30,13 +31,13 @@ public class ContacturaUserController {
 	private ContacturaUserService service;
 
 	@GetMapping
-	public List findAll() {
+	public List<?> findAll() {
 		return userRepository.findAll();
 	}
 
 	// Find By Id - //http:localhost:8090/contacturaUser/{id}
 	@GetMapping(value = "{id}")
-	public ResponseEntity findById(@PathVariable long id) {
+	public ResponseEntity<?> findById(@PathVariable long id) {
 		return userRepository.findById(id).map(record -> ResponseEntity.ok().body(record))
 				.orElse(ResponseEntity.notFound().build());
 
@@ -50,7 +51,7 @@ public class ContacturaUserController {
 
 	// Update - http://localhost/contacturaUser/{id}
 	@PutMapping(value = "{id}")
-	public ResponseEntity upadte(@PathVariable long id, @RequestBody ContacturaUser contacturaUser) {
+	public ResponseEntity<?> upadte(@PathVariable long id, @RequestBody ContacturaUser contacturaUser) {
 		return userRepository.findById(id).map(record -> {
 			record.setName(contacturaUser.getName());
 			record.setPassword(contacturaUser.getPassword());
@@ -73,5 +74,7 @@ public class ContacturaUserController {
 			return new ResponseEntity<String>("Error" + e.getMessage(), HttpStatus.LOCKED);
 		}
 	}
+	
+	
 
 }
