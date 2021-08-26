@@ -21,7 +21,10 @@ import com.contactura.contactura.model.ContacturaUser;
 import com.contactura.contactura.repository.ContacturaRepository;
 import com.contactura.contactura.repository.ContacturaUserRepository;
 import com.contactura.contactura.service.ContacturaService;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 94f908d (Criando pesquisar personalizada)
 
 @RestController
 @RequestMapping({ "/contactura" }) // http://localhost:8090/contactura
@@ -31,14 +34,16 @@ public class ContacturaController {
 	private ContacturaRepository repository;
 	@Autowired
 	private ContacturaService service;
+<<<<<<< HEAD
 	@Autowired
 	private ContacturaUserRepository userRepository;
+=======
+>>>>>>> parent of 94f908d (Criando pesquisar personalizada)
 
 	// List ALL - //http://localhost:8090/contactura
 	@GetMapping
 	public List<?> findAll() {
 		return repository.findAll();
-		
 	}
 
 	// Find By Ud - //http://localhost:8090/contactura/{id}
@@ -77,6 +82,7 @@ public class ContacturaController {
 			return new ResponseEntity<String>("Error: " + e.getMessage(), HttpStatus.LOCKED);
 		}
 	}
+<<<<<<< HEAD
 	
 	@GetMapping("/joinQuery")
     public List<?> getQuery()
@@ -86,4 +92,6 @@ public class ContacturaController {
         return list;
     }
 
+=======
+>>>>>>> parent of 94f908d (Criando pesquisar personalizada)
 }
