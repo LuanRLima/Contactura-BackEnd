@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.contactura.contactura.dom.TwoTables;
 import com.contactura.contactura.model.Contactura;
 import com.contactura.contactura.repository.ContacturaRepository;
 import com.contactura.contactura.service.ContacturaService;
+import com.contactura.contactura.service.QueryService;
 
 @RestController
 @RequestMapping({ "/contactura" }) // http://localhost:8090/contactura
@@ -27,11 +29,14 @@ public class ContacturaController {
 	private ContacturaRepository repository;
 	@Autowired
 	private ContacturaService service;
+	@Autowired
+    QueryService queryservice;
 
 	// List ALL - //http://localhost:8090/contactura
 	@GetMapping
 	public List<?> findAll() {
 		return repository.findAll();
+		
 	}
 
 	// Find By Ud - //http://localhost:8090/contactura/{id}
@@ -70,4 +75,10 @@ public class ContacturaController {
 			return new ResponseEntity<String>("Error: " + e.getMessage(), HttpStatus.LOCKED);
 		}
 	}
+	
+	@GetMapping("/joinQuery")
+    public List<TwoTables> getQuery()
+    {
+        return queryservice.JPQLQuery();
+    }
 }
