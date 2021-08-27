@@ -7,12 +7,15 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import com.contactura.contactura.model.Contactura;
+import com.contactura.contactura.model.ContacturaUser;
 
 @Repository
 public interface ContacturaRepository extends JpaRepository<Contactura, Long> {
 	
 	@Query(value = "select * from Contact", nativeQuery = true)
 	List<Contactura> findAllQuery();
+	
+	
 	
 	
 }

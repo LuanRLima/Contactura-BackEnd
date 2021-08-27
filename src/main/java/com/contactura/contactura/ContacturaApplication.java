@@ -18,8 +18,6 @@ public class ContacturaApplication {
 		SpringApplication.run(ContacturaApplication.class, args);
 	}
 	
-<<<<<<< HEAD
-	
 	
 /*	@Bean
 =======
